@@ -2,7 +2,6 @@ var _ = require('slapdash')
 var createConsoleLogger = require('./createConsoleLogger')
 var patterns = require('./patterns')
 var LEVELS = require('./levels')
-var isBrowser = require('./isBrowser')
 
 function compositeLogger (name, loggers) {
   var minLevelIndex = _.indexOf(LEVELS, patterns.getLevel(name))
@@ -65,14 +64,5 @@ function disable () {
 createLogger.LEVELS = LEVELS
 createLogger.enable = enable
 createLogger.disable = disable
-
-if (isBrowser()) {
-  window.__qubit = window.__qubit || {}
-  window.__qubit.logger = window.__qubit.logger || {
-    enable: enable,
-    disable: disable,
-    LEVELS: LEVELS
-  }
-}
 
 module.exports = createLogger
