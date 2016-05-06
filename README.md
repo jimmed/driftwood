@@ -24,10 +24,6 @@ Enabling log output:
 
 ```js
 createLogger.enable() // defaults to { '*': 'info' }
-window.__qubit.logger.enable({ // it is also available on the window
-  'foo': 'info',
-  'bar:*': 'debug'
-})
 ```
 
 
@@ -62,11 +58,11 @@ var childLog = createLogger('bar') // namespace will be foo:bar
 
 ### `createLogger.enable(config)`
 
-Enable logging using the optional log level config. The config is a map of name patterns to log level, defaulting to `{ '*': 'info' }`. See below for more pattern examples. This method is also available on the window at `window.__qubit.logger.enable()`.
+Enable logging using the optional log level config. The config is a map of name patterns to log level, defaulting to `{ '*': 'info' }`. See below for more pattern examples.
 
 ### `createLogger.disable()`
 
-Clears the log config, disabling logging. Also available at `window.__qubit.logger.disable()`.
+Clears the log config, disabling logging.
 
 
 ### Enabling logging
